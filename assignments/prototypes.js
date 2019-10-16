@@ -148,3 +148,58 @@ const mage = new Humanoid({
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+function Hero(attr){
+  Humanoid.call(this, attr)
+}
+Hero.prototype=Object.create(Humanoid.prototype)
+
+  const warrior = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 5,
+      width: 5,
+      height: 5,
+    },
+    healthPoints: 100,
+    name: 'Azzure Kickure',
+    team: 'BAMF',
+    weapons: [
+      'Giant Sword',
+      'Shield',
+    ],
+    language: 'Common Tongue',
+  });
+
+  Hero.prototype.slash = function(){
+    return `${this.name} used slash for 15 points of damage!`
+  };
+  console.log(warrior.slash());
+
+function Villian(attrs){
+  Humanoid.call(this, attrs)
+};
+Villian.prototype=Object.create(Humanoid.prototype)
+
+  const burnout = new Villian({
+    createdAt: new Date(),
+    dimensions: {
+      length: 25,
+      width: 1,
+      height: 1,
+    },
+    healthPoints: 100,
+    name: 'Evil Richard',
+    team: 'CrackPipes',
+    weapons: [
+      'Flame of Tweek',
+    ],
+    language: 'Gibberish',
+  });
+
+  Villian.prototype.crackpipe=function(){
+    return `${this.name} smoked his pipe for +100 health`
+  }
+
+  
+console.log(burnout.crackpipe())
