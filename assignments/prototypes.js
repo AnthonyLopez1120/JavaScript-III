@@ -174,11 +174,19 @@ Hero.prototype=Object.create(Humanoid.prototype)
   Hero.prototype.slash = function(){
     return `${this.name} used slash for 15 points of damage!`
   };
-  console.log(warrior.slash());
+  
+  Hero.prototype.targetCrackPipe = function(){
+    return `${this.name} targeted the crackpipe, breaking it instantly!`
+  };
+
+  
+
+  console.log(warrior.targetCrackPipe())
 
 function Villian(attrs){
   Humanoid.call(this, attrs)
 };
+
 Villian.prototype=Object.create(Humanoid.prototype)
 
   const burnout = new Villian({
@@ -200,6 +208,13 @@ Villian.prototype=Object.create(Humanoid.prototype)
   Villian.prototype.crackpipe=function(){
     return `${this.name} smoked his pipe for +100 health`
   }
+  Villian.prototype.steal=function(){
+    return `${this.name} stole an item from Azzure and sold it for more crack!`
+  }
 
-  
-console.log(burnout.crackpipe())
+  Villian.prototype.crackpipeRemoved=function(){
+    return `${this.name} dies from withdrawl`
+  }
+
+  console.log(burnout.steal());
+
